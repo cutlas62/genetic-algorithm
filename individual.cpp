@@ -11,6 +11,9 @@ const char genome_pool [] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', '
 
 
 
+Individual::Individual(void){
+	
+}
 
 
 Individual::Individual(uint32_t genome_size)
@@ -28,7 +31,7 @@ void Individual::print_genome (void)
     printf("\n");
 }
 
-void Individual::calculate_fitness (const char * target, uint32_t target_size)
+void Individual::calculate_fitness (const char *target, uint32_t target_size)
 {
     uint32_t tmp_fitness = 0;
     for(uint16_t i = 0; i < target_size; i++)
@@ -49,6 +52,14 @@ void Individual::print_info(void)
     }
     printf("\tFitness: %d\n", fitness);
 }
+
+
+uint32_t Individual::get_fitness(void)
+{
+    return fitness;
+}
+
+
 
 void generate_random_genome(std::string *genome, uint32_t size)
 {

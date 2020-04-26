@@ -5,14 +5,16 @@
 
 #include "individual.h"
 
-class Population{
+class Population
+{
 
 public:
-	Population(uint32_t population_n, const char * target_genome, uint32_t target_genome_size);
-	void print_info(void);
+    Population(uint32_t population_n, const char *target_genome, uint32_t target_genome_size);
+    void print_info(void);
+    Individual* get_best_individual(void);
 
 private:
-	std::vector<Individual> population;
+    std::vector<Individual> population;
 
 protected:
 };
