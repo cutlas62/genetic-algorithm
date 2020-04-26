@@ -1,7 +1,7 @@
 # Define required macros here
 SHELL = /bin/sh
 
-OBJS =  genetic.cpp
+OBJS =  genetic.cpp population.cpp individual.cpp
 CFLAG = -Wall -g
 CC = g++
 STD = -std=c++11
