@@ -27,6 +27,7 @@ void Population::repopulate_next_gen (std::string *prev_fittest_genome, uint32_t
     {
         mate(&offspring_genome, genome_size, prev_fittest_genome, last_gen.at(i).get_genome());
         Individual new_ind(genome_size, &offspring_genome);
+        new_ind.calculate_fitness(target_genome, target_genome_size);
         population.push_back(new_ind);
     }
 }
@@ -58,4 +59,17 @@ Individual *Population::get_best_individual(void)
         }
     }
     return best_ptr;
+}
+
+std::vector<Individual> * Population::get_population (void){
+    return &population;
+}
+
+void Population::sort_by_fitness (void){
+    std::sort(population.begin(), population.end(), compare_by_fitness);
+}
+
+
+bool compare_by_fitness (Individual ind1, Individual ind2){
+    return (ind1.get_fitness() < ind2.get_fitness());
 }

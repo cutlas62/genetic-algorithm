@@ -12,16 +12,11 @@
 
 #define POPULATION_SIZE     10000
 #define N_GENERATIONS		1000
-#define MUTATION_FACTOR		0.9
 
 const char target_genome[] = {"Test String with many characters and weird stuff )(*&^%$#@"};
-//const uint32_t target_genome_size = sizeof(target_genome);
 
 
 
-
-
-using namespace std;
 int main(int argc, char *argv[])
 {
     srand (time(NULL));
@@ -31,13 +26,18 @@ int main(int argc, char *argv[])
 
     //pop.print_info();
 
-    Individual *tmp;
+    Individual *tmp = new Individual;
+    pop.sort_by_fitness();
+    *tmp = (pop.get_population())->at(0);
 
-    for(uint32_t i = 1; i < N_GENERATIONS + 1; i++)
+    printf("Generation 0:\t");
+        tmp->print_info();
+
+    for(uint32_t i = 1; i < N_GENERATIONS; i++)
     {
-        tmp = pop.get_best_individual();
         pop.repopulate_next_gen (tmp->get_genome(), sizeof(target_genome));
-        tmp = pop.get_best_individual();
+        pop.sort_by_fitness();
+        *tmp = (pop.get_population())->at(0);
 
         printf("Generation %d:\t", i);
         tmp->print_info();
