@@ -39,12 +39,12 @@ void Individual::print_genome (void)
     printf("\n");
 }
 
-void Individual::calculate_fitness (const char *target, uint32_t target_size)
+void Individual::calculate_fitness (std::string *target, uint32_t target_size)
 {
     uint32_t tmp_fitness = 0;
     for(uint16_t i = 0; i < target_size; i++)
     {
-        if (genome[i] != target[i])
+        if (genome.at(i) != target->at(i))
         {
             tmp_fitness++;
         }

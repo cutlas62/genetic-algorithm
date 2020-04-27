@@ -10,10 +10,10 @@
 #include "population.h"
 
 
-#define POPULATION_SIZE     10000
-#define N_GENERATIONS		1000
+#define POPULATION_SIZE     1000
+#define N_GENERATIONS		10000
 
-const char target_genome[] = {"Test String with many characters and weird stuff )(*&^%$#@"};
+std::string target_genome = {"Test String with a bunch of characters !@#$%^&*()_+"};
 
 
 
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     srand (time(NULL));
 
 
-    Population pop(POPULATION_SIZE, &target_genome[0], sizeof(target_genome));
+    Population pop(POPULATION_SIZE, &target_genome, target_genome.size());
 
     //pop.print_info();
 
@@ -35,12 +35,15 @@ int main(int argc, char *argv[])
 
     for(uint32_t i = 1; i < N_GENERATIONS; i++)
     {
-        pop.repopulate_next_gen (tmp->get_genome(), sizeof(target_genome));
+        pop.repopulate_next_gen();
         pop.sort_by_fitness();
         *tmp = (pop.get_population())->at(0);
 
         printf("Generation %d:\t", i);
         tmp->print_info();
+        if(tmp->get_fitness() == 0){
+        	break;
+        }
     }
 
 

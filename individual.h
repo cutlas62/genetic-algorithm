@@ -12,7 +12,7 @@ public:
     Individual (uint32_t genome_size);
     Individual (uint32_t genome_size, std::string * new_genome);
     void print_genome(void);
-    void calculate_fitness(const char *target, uint32_t target_size);
+    void calculate_fitness(std::string *target, uint32_t target_size);
     void print_info(void);
     uint32_t get_fitness (void);
     std::string * get_genome (void);
