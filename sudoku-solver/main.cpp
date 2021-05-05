@@ -1,3 +1,5 @@
+#include "population.h"
+
 #include <cstdio>
 #include <iostream>
 #include <fstream>
