@@ -1,7 +1,7 @@
 # Define required macros here
 SHELL = /bin/sh
 
-OBJS =  main.cpp
+OBJS =  main.cpp individual.cpp population.cpp
 CFLAG = -Wall -g
 CC = g++
 STD = -std=c++11

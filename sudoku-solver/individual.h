@@ -1,3 +1,6 @@
+#ifndef _INDIVIDUAL_H
+#define _INDIVIDUAL_H
+
 #include <vector>
 #include <stdint.h>
 
@@ -10,3 +13,5 @@ class Individual {
 public:
     Individual (vector<vector<uint8_t>> &bone);
 };
+
+#endif	// _INDIVIDUAL_H
