@@ -3,6 +3,8 @@
 #include <cstdio>
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
+#include <time.h>
 
 #include <string>
 #include <vector>
@@ -26,6 +28,10 @@ void populateBoneGenome (vector<vector<uint8_t>> &boneGenome) {
 }
 
 int main() {
+
+    // Initialize random seed
+    srand(time(NULL));
+
     // Fill bone genome from txt file
     vector<vector<uint8_t>> boneGenome (9, vector<uint8_t>(9, 0));
     populateBoneGenome(boneGenome);

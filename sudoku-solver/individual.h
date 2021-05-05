@@ -7,7 +7,7 @@
 using namespace std;
 
 class Individual {
-    vector<vector<uint8_t>> grid;
+    vector<vector<uint8_t>> genome;
     uint8_t fitness;
 
 public:
