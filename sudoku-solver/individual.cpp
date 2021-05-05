@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <unordered_set>
 
-Individual::Individual (vector<vector<uint8_t>> &bone) {
+Individual::Individual (vector<vector<uint8_t>> &bone) :
+genome (9, vector<uint8_t> (9)) {
     // Fill grid randomly according to the boneGenome
     for(uint8_t i = 0; i < 9; i++) {
         for(uint8_t j = 0; j < 9; j++) {

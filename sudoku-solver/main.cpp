@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 
-#define POP_N_INDIVIDUALS   100
+#define POP_N_INDIVIDUALS   1
 #define POP_N_ALPHAS        5
 
 using namespace std;
@@ -39,7 +39,7 @@ int main() {
     // Create random population
     Population pop (boneGenome, POP_N_INDIVIDUALS, POP_N_ALPHAS);
 
-    for (uint16_t i = 0; i < 1000; i++){
+    for (uint16_t i = 0; i < 1; i++){
         pop.repopulate(RANDOMIZE);
         cout << "Gen " << i << ": " << pop.getFitness() << endl;
     }

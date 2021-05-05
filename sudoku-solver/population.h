@@ -17,6 +17,9 @@ class Population {
     vector<Individual> population;
     double avgFitness;
 
+    void createInitialPopulation (void);
+    void updateAvgFitness (void);
+
 public:
     Population (vector<vector<uint8_t>> &bone, uint32_t nInd, uint32_t nAlp);
     void repopulate (enum geneticOperator);
