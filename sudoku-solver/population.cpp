@@ -60,7 +60,19 @@ void Population::repopulate (geneticOperator op) {
         break;
 
     case BREEDING:
+        for (uint32_t i = nAlphas; i < nIndividuals; i++) {
+            // Select two different parents from the Alphas
+            uint32_t p1Index = rand() % nAlphas;
+            uint32_t p2Index = p1Index;
+            while (p2Index == p1Index){
+            	p2Index = rand() % nAlphas;
+            }
 
+            // Create the child
+            population.push_back(Individual(boneGenome, 
+            								alphas[p1Index].getGenome(),
+            								alphas[p2Index].getGenome()));
+        }
         break;
     }
 }

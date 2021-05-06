@@ -9,9 +9,9 @@
 #include <string>
 #include <vector>
 
-#define POP_N_INDIVIDUALS   500
-#define POP_N_ALPHAS        400
-#define N_GENERATIONS       1000
+#define POP_N_INDIVIDUALS   1000
+#define POP_N_ALPHAS        800
+#define N_GENERATIONS       750
 
 using namespace std;
 
@@ -47,7 +47,7 @@ int main() {
     pop.updateAvgFitness();
 
     for (uint16_t i = 0; i < N_GENERATIONS; i++){
-        pop.repopulate(RANDOMIZE);
+        pop.repopulate(BREEDING);
         pop.updateAvgFitness();
         cout << "Gen " << i << ": " << pop.getFitness() << endl;
     }
