@@ -21,7 +21,7 @@ genome (9, vector<uint8_t> (9)) {
 
 uint32_t Individual::calculateFitness (void) {
     /*
-     * Let's define the fitness fucntion as the sum of the sizes of three histograms.
+     * Let's define the fitness function as the sum of the sizes of three histograms.
      *
      * For the first histogram, we traverse all the rows and for each row, we see how many
      * uniques digits there are. We add the number of unique digits to the fitness value
@@ -67,4 +67,8 @@ uint32_t Individual::calculateFitness (void) {
     }
 
     return fitness;
+}
+
+uint32_t Individual::getFitness (void){
+	return fitness;
 }

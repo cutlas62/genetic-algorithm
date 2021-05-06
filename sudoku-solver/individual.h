@@ -13,6 +13,7 @@ class Individual {
 public:
     Individual (vector<vector<uint8_t>> &bone);
     uint32_t calculateFitness (void);
+    uint32_t getFitness (void);
 };
 
 #endif	// _INDIVIDUAL_H

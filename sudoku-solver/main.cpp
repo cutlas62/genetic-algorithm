@@ -9,8 +9,9 @@
 #include <string>
 #include <vector>
 
-#define POP_N_INDIVIDUALS   1
-#define POP_N_ALPHAS        5
+#define POP_N_INDIVIDUALS   500
+#define POP_N_ALPHAS        400
+#define N_GENERATIONS       1000
 
 using namespace std;
 
@@ -28,6 +29,11 @@ void populateBoneGenome (vector<vector<uint8_t>> &boneGenome) {
 }
 
 int main() {
+    // Check that nAlphas is not higher than the entire population
+    if (POP_N_ALPHAS >= POP_N_INDIVIDUALS){
+        cout << "There can't be more Alphas than Individuals" << endl;
+        return -1;
+    }
 
     // Initialize random seed
     srand(time(NULL));
@@ -38,9 +44,11 @@ int main() {
 
     // Create random population
     Population pop (boneGenome, POP_N_INDIVIDUALS, POP_N_ALPHAS);
+    pop.updateAvgFitness();
 
-    for (uint16_t i = 0; i < 1; i++){
+    for (uint16_t i = 0; i < N_GENERATIONS; i++){
         pop.repopulate(RANDOMIZE);
+        pop.updateAvgFitness();
         cout << "Gen " << i << ": " << pop.getFitness() << endl;
     }
 

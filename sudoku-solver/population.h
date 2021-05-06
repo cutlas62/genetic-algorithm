@@ -18,11 +18,11 @@ class Population {
     double avgFitness;
 
     void createInitialPopulation (void);
-    void updateAvgFitness (void);
 
 public:
     Population (vector<vector<uint8_t>> &bone, uint32_t nInd, uint32_t nAlp);
-    void repopulate (enum geneticOperator);
+    void repopulate (geneticOperator op);
+    void updateAvgFitness (void);
     double getFitness (void);
 };
 
